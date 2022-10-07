@@ -1,20 +1,20 @@
 class FlatIterator():
 
     def __init__(self, some_list):
-        self.some_list = some_list
-        self.cursor = 0
-        self.nest_cursor = 0
+        self.main_list = some_list
     
     def __iter__(self):
+        self.main_cursor = 0
+        self.nest_cursor = 0
         return self
 
     def __next__(self):
-        while self.cursor < len(self.some_list):
-            if self.nest_cursor < len(self.some_list[self.cursor]):
-                list_element = self.some_list[self.cursor][self.nest_cursor]
+        while self.main_cursor < len(self.main_list):
+            if self.nest_cursor < len(self.main_list[self.main_cursor]):
+                list_element = self.main_list[self.main_cursor][self.nest_cursor]
                 self.nest_cursor += 1
                 return list_element
-            self.cursor += 1
+            self.main_cursor += 1
             self.nest_cursor = 0
         raise StopIteration
 

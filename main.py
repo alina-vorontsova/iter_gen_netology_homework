@@ -1,4 +1,4 @@
-from models import FlatIterator, flat_generator_v1, flat_generator_v2
+from iterator_and_generator import FlatIterator, flat_generator_v1, flat_generator_v2
 
 
 nested_list = [
